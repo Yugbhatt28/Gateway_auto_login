@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>College Gateway Auto Login — Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="head">
+        <img src="icons/icon48.png" alt="" width="44" height="44" />
+        <div>
+          <h1>College Gateway Auto Login</h1>
+          <p>Configure your college gateway. Everything you enter stays in this Chrome profile.</p>
+        </div>
+      </header>
+
+      <form id="form" autocomplete="off">
+        <section class="card">
+          <h2>Gateway</h2>
+          <label for="gatewayUrl">Gateway URL</label>
+          <input id="gatewayUrl" type="url" placeholder="http://10.20.30.40/login" required />
+          <p class="hint">The full login page address given by your college, including http:// or https://.</p>
+
+          <label class="switch">
+            <input id="autoLogin" type="checkbox" checked />
+            <span>Log in automatically when this gateway page opens</span>
+          </label>
+        </section>
+
+        <section class="card">
+          <h2>Credentials</h2>
+          <label for="username">College ID / username</label>
+          <input id="username" type="text" autocomplete="off" spellcheck="false" />
+
+          <label for="password">Password</label>
+          <div class="row">
+            <input id="password" type="password" autocomplete="new-password" />
+            <button type="button" id="reveal" class="ghost" aria-pressed="false">Show</button>
+          </div>
+          <p class="hint" id="credHint">Stored only on this device and sent only to the gateway above.</p>
+        </section>
+
+        <section class="card">
+          <h2>Field selectors <span class="tag">optional</span></h2>
+          <p class="hint">Leave blank to auto-detect. Fill in only if auto-detection fails.</p>
+          <label for="usernameSelector">Username selector</label>
+          <input id="usernameSelector" type="text" placeholder="#username" spellcheck="false" />
+          <label for="passwordSelector">Password selector</label>
+          <input id="passwordSelector" type="text" placeholder="#password" spellcheck="false" />
+          <label for="loginSelector">Login button selector</label>
+          <input id="loginSelector" type="text" placeholder="#login" spellcheck="false" />
+        </section>
+
+        <div class="actions">
+          <button type="submit" class="primary">Save Settings</button>
+          <button type="button" id="test" class="secondary">Test Gateway</button>
+          <button type="button" id="edit" class="secondary">Edit Credentials</button>
+          <button type="button" id="clear" class="danger">Clear Credentials</button>
+        </div>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </form>
+
+      <footer class="foot">
+        No analytics. No telemetry. No developer server. See PRIVACY.md in the extension package.
+      </footer>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
